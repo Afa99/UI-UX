@@ -10,6 +10,11 @@ import { motion } from "framer-motion";
 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
   <Hero>...</Hero>
 </motion.div>
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
 
 export default function Home() {
   return (
@@ -23,12 +28,24 @@ export default function Home() {
     </p>
 
     <div className="cta-buttons">
-      <Button variant="primary">View Components</Button>
-      <Button variant="outline">Get Started</Button>
+    <Button
+  variant="primary"
+  onClick={() => scrollTo("why-ui-system")}
+>
+  View Components
+</Button>
+
+<Button
+  variant="outline"
+  onClick={() => scrollTo("pro-features")}
+>
+  Get Started
+</Button>
+
     </div>
   </Container>
 </Hero>
-<Section title="Why This UI System?">
+<Section id="why-ui-system" title="Why This UI System?">
   <Container>
     <FeaturesGrid>
       
@@ -106,7 +123,8 @@ export default function Home() {
   </Container>
 </Section>
 
-      <Section title="Professional UI Features" >
+     <Section id="pro-features" title="Professional UI Features">
+
   <Container>
     <FeaturesGrid>
 

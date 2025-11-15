@@ -1,5 +1,7 @@
-import { Wrapper } from "./styles";
+"use client";
+
 import { motion } from "framer-motion";
+import { Wrapper } from "./styles";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -8,14 +10,13 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function Card({ children, clickable = false, ...rest }: Props) {
   return (
-    <Wrapper
-      as={motion.div}
-      whileHover={clickable ? { scale: 1.03 } : undefined}
-      whileTap={clickable ? { scale: 0.98 } : undefined}
-      clickable={clickable}
-      {...rest}
+    <motion.div
+      whileHover={clickable ? { scale: 1.04 } : undefined}
+      whileTap={clickable ? { scale: 0.97 } : undefined}
     >
-      {children}
-    </Wrapper>
+      <Wrapper clickable={clickable} {...rest}>
+        {children}
+      </Wrapper>
+    </motion.div>
   );
 }

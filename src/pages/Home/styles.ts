@@ -61,5 +61,5 @@ export const FeatureCard = styled.div`
     font-size: 18px;
     color: #475569;
     margin-top: 12px;
-  }
+  } 
 `;
